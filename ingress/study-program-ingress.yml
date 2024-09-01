@@ -1,0 +1,17 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ms-study-program-ingress
+  namespace: cetpro
+spec:
+  ingressClassName: nginx
+  rules:
+    - http:
+        paths:
+          - path: /study-program/(.*)
+            pathType: Prefix
+            backend:
+              service:
+                name: ms-study-program
+                port:
+                  number: 8086

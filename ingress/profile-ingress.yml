@@ -1,0 +1,17 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ms-profile-ingress
+  namespace: cetpro
+spec:
+  ingressClassName: nginx
+  rules:
+    - http:
+        paths:
+          - path: /profile/(.*)
+            pathType: Prefix
+            backend:
+              service:
+                name: ms-profile
+                port:
+                  number: 80

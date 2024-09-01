@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: vg-ms-student
+  namespace: cetpro
+spec:
+  selector:
+    app: vg-ms-student
+  ports:
+    - name: http
+      protocol: "TCP"
+      port: 8082
+      targetPort: 8082
+  type: ClusterIP

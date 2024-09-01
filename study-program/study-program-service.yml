@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ms-web-artemio
+  namespace: cetpro
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ms-web-artemio
+  template:
+    metadata:
+      labels:
+        app: ms-web-artemio
+    spec:
+      containers:
+        - name: ms-web-artemio
+          image: gabrielgutierrezquispe/ms-web-artemio:1.0.2
+          ports:
+            - containerPort: 80  
+          resources:
+            requests:
+              cpu: "0.25"  
+              memory: "512Mi"
+            limits:
+              cpu: "0.5"
+              memory: "512Mi"

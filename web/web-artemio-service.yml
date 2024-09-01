@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: ms-web-artemio
+  namespace: cetpro
+spec:
+  selector:
+    app: ms-web-artemio
+  ports:
+    - protocol: TCP
+      port: 80        
+      targetPort: 80  
+  type: LoadBalancer

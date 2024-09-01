@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ms-study-program
+  namespace: cetpro
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ms-study-program
+  template:
+    metadata:
+      labels:
+        app: ms-study-program
+    spec:
+      containers:
+        - name: ms-study-program
+          image: shirleyascencio/ms-studyprogramme-back
+          ports:
+            - containerPort: 8086
+          resources:
+            requests:
+              cpu: "0.25"  
+              memory: "512Mi"
+            limits:
+              cpu: "0.5"
+              memory: "512Mi"

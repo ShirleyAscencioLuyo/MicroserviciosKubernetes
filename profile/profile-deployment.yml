@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ms-profile
+  namespace: cetpro
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ms-profile
+  template:
+    metadata:
+      labels:
+        app: ms-profile
+    spec:
+      containers:
+        - name: ms-profile
+          image: shirleyascencio/ms-cetpro-back
+          ports:
+            - containerPort: 8080
+          resources:
+            requests:
+              cpu: "0.25"  
+              memory: "512Mi"
+            limits:
+              cpu: "0.5"
+              memory: "512Mi"

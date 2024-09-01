@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: vg-ms-student
+  namespace: cetpro
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: vg-ms-student
+  template:
+    metadata:
+      labels:
+        app: vg-ms-student
+    spec:
+      containers:
+        - name: ms-student
+          image: gabrielgutierrezquispe/vg-ms-student:1.0.0
+          ports:
+            - containerPort: 8082
+          resources:
+            requests:
+              cpu: "0.25"  
+              memory: "512Mi"
+            limits:
+              cpu: "0.5"
+              memory: "512Mi"
